@@ -1,20 +1,36 @@
-function numberToLcd(number) {
-    if (number === 2) {
-        return `
+const singleNumbers = [
+    `
+###
+# #
+# #
+# #
+###
+`,
+    `
+  #
+  #
+  #
+  #
+  #
+`,
+    `
 ###
   #
 ###
 #  
 ###
+`,
+    `
+###
+  #
+###
+  #
+###
 `
-    }
-    return `
-  #
-  #
-  #
-  #
-  #
-`
+]
+
+function numberToLcd(number) {
+    return singleNumbers[number]
 }
 
 module.exports = {
