@@ -43,7 +43,7 @@ describe('Number to LCD', () => {
 `)
     })
 
-    xit('converts 4', () => {
+    it('converts 4', () => {
         numberToLcd(4).should.equal(`
 # #
 # #
@@ -53,7 +53,7 @@ describe('Number to LCD', () => {
 `)
     })
 
-    xit('converts 5', () => {
+    it('converts 5', () => {
         numberToLcd(5).should.equal(`
 ###
 #  
@@ -63,7 +63,7 @@ describe('Number to LCD', () => {
 `)
     })
 
-    xit('converts 6', () => {
+    it('converts 6', () => {
         numberToLcd(6).should.equal(`
 ###
 #  
@@ -73,7 +73,7 @@ describe('Number to LCD', () => {
 `)
     })
 
-    xit('converts 7', () => {
+    it('converts 7', () => {
         numberToLcd(7).should.equal(`
 ###
   #
@@ -83,7 +83,7 @@ describe('Number to LCD', () => {
 `)
     })
 
-    xit('converts 8', () => {
+    it('converts 8', () => {
         numberToLcd(8).should.equal(`
 ###
 # #
@@ -93,7 +93,7 @@ describe('Number to LCD', () => {
 `)
     })
 
-    xit('converts 9', () => {
+    it('converts 9', () => {
         numberToLcd(9).should.equal(`
 ###
 # #
