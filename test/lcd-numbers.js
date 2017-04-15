@@ -1,9 +1,9 @@
 require('chai').should()
 
-const {numberToLcd, digitLine} = require('../app/number-to-lcd')
+const {numberToLcd, digitLine, splitNumber} = require('../app/number-to-lcd')
 
 describe('Number to LCD', () => {
-    context('Single digits', function () {
+    context('Single digits', function() {
         it('converts 0', () => {
             numberToLcd(0).should.equal(`
 ###
@@ -105,7 +105,7 @@ describe('Number to LCD', () => {
         })
     })
 
-    context('Two digits', () => {
+    context('Larger numbers', () => {
         it('converts 10', () => {
             numberToLcd(10).should.equal(`
   # ###
@@ -113,6 +113,27 @@ describe('Number to LCD', () => {
   # # #
   # # #
   # ###
+`)
+        })
+
+        it('converts 11', () => {
+            numberToLcd(11).should.equal(`
+  #   #
+  #   #
+  #   #
+  #   #
+  #   #
+`)
+        })
+
+        it('converts 1789', () => {
+            numberToLcd(1789).should.equal(
+                `
+  # ### ### ###
+  #   # # # # #
+  #  #  ### ###
+  #  #  # #   #
+  #  #  ### ###
 `)
         })
     })
@@ -168,5 +189,25 @@ describe('Number to LCD', () => {
             })
         })
     })
-})
 
+    describe('Splitting a number into digits', () => {
+        context('Single digit numbers', () => {
+            it('returns [0] for 0', () => {
+                splitNumber(0).should.deep.equal([0])
+            })
+            it('returns [9] for 9', () => {
+                splitNumber(9).should.deep.equal([9])
+            })
+        })
+
+        context('Larger numbers', () => {
+            it('returns [1, 0] for 10', () => {
+                splitNumber(10).should.deep.equal([1, 0])
+            })
+
+            it('returns [1, 7, 8, 9] for 1789', () => {
+                splitNumber(1789).should.deep.equal([1, 7, 8, 9])
+            })
+        })
+    })
+})

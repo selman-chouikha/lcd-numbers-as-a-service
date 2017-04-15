@@ -1,5 +1,5 @@
 function numberToLcd(number) {
-    const digits = (number < 10) ? [number] : [1, 0]
+    const digits = splitNumber(number)
     const resultLines = [1, 2, 3, 4, 5].map(lineNumber => _currentLine(digits, lineNumber))
     return '\n' + resultLines.join('\n') + '\n'
 }
@@ -13,16 +13,23 @@ function _currentLine(digits, lineNumber) {
     return currentLineParts.join(' ')
 }
 
-module.exports = {
-    numberToLcd,
-    digitLine
+function splitNumber(number) {
+    const numberAsString = String(number)
+    const digitsAsString = numberAsString.split('')
+    return digitsAsString.map(character => parseInt(character))
 }
 
-const XXX = '###'
-const X_X = '# #'
-const X__ = '#  '
-const _X_ = ' # '
+module.exports = {
+    numberToLcd,
+    digitLine,
+    splitNumber
+}
+
 const __X = '  #'
+const _X_ = ' # '
+const X__ = '#  '
+const X_X = '# #'
+const XXX = '###'
 
 const DIGIT_LINES = [
     [
