@@ -106,7 +106,7 @@ describe('Number to LCD', () => {
     })
 
     context('Two digits', () => {
-        xit('converts 10', () => {
+        it('converts 10', () => {
             numberToLcd(10).should.equal(`
   # ###
   # # #

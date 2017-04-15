@@ -1,83 +1,28 @@
-const SINGLE_NUMBERS = [
-    `
-###
-# #
-# #
-# #
-###
-`,
-    `
-  #
-  #
-  #
-  #
-  #
-`,
-    `
-###
-  #
-###
-#  
-###
-`,
-    `
-###
-  #
-###
-  #
-###
-`, `
-# #
-# #
-###
-  #
-  #
-`,
-    `
-###
-#  
-###
-  #
-###
-`,
-    `
-###
-#  
-###
-# #
-###
-`,
-    `
-###
-  #
- # 
- # 
- # 
-`,
-    `
-###
-# #
-###
-# #
-###
-`,
-    `
-###
-# #
-###
-  #
-###
-`]
-
 function numberToLcd(number) {
-    return SINGLE_NUMBERS[number] || SINGLE_NUMBERS[1]
+    const digits = (number < 10) ? [number] : [1, 0]
+    const resultLines = [1, 2, 3, 4, 5].map(lineNumber => _currentLine(digits, lineNumber))
+    return '\n' + resultLines.join('\n') + '\n'
+}
+
+function digitLine(digit, line) {
+    return DIGIT_LINES[digit][line - 1]
+}
+
+function _currentLine(digits, lineNumber) {
+    const currentLineParts = digits.map(digit => digitLine(digit, lineNumber))
+    return currentLineParts.join(' ')
+}
+
+module.exports = {
+    numberToLcd,
+    digitLine
 }
 
 const XXX = '###'
 const X_X = '# #'
-const __X = '  #'
 const X__ = '#  '
 const _X_ = ' # '
+const __X = '  #'
 
 const DIGIT_LINES = [
     [
@@ -92,71 +37,62 @@ const DIGIT_LINES = [
         __X,
         __X,
         __X,
-        __X,
+        __X
     ],
     [
         XXX,
         __X,
         XXX,
         X__,
-        XXX,
+        XXX
     ],
     [
         XXX,
         __X,
         XXX,
         __X,
-        XXX,
+        XXX
     ],
     [
         X_X,
         X_X,
         XXX,
         __X,
-        __X,
+        __X
     ],
     [
         XXX,
         X__,
         XXX,
         __X,
-        XXX,
+        XXX
     ],
     [
         XXX,
         X__,
         XXX,
         X_X,
-        XXX,
+        XXX
     ],
     [
         XXX,
         __X,
         _X_,
         _X_,
-        _X_,
+        _X_
     ],
     [
         XXX,
         X_X,
         XXX,
         X_X,
-        XXX,
+        XXX
     ],
     [
         XXX,
         X_X,
         XXX,
         __X,
-        XXX,
+        XXX
     ]
 ]
-
-function digitLine(digit, line) {
-    return DIGIT_LINES[digit][line - 1]
-}
-
-module.exports = {
-    numberToLcd,
-    digitLine
-}
