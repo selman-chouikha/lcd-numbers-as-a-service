@@ -9,7 +9,7 @@
     "test": "npm run test:unit",
     "test:e2e": "mocha --recursive test/end-to-end",
     "test:unit": "mocha --recursive test/unit",
-    "server": "node server"
+    "start": "node server"
   },
   "keywords": [],
   "author": "",

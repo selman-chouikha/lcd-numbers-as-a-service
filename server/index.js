@@ -19,7 +19,7 @@ server.route({
     path: '/',
     handler: function(request, reply) {
         const exampleUrl = `${baseUrl}/lcd_numbers/12345`
-        reply(`Please use the "/{number}" route.<br/>Example: <a href="${exampleUrl}">${exampleUrl}</a>`)
+        reply(`Please use the "/lcd_numbers/{number}" route.<br/>Example: <a href="${exampleUrl}">${exampleUrl}</a>`)
     }
 })
 
