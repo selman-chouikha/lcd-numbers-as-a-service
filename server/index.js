@@ -2,16 +2,24 @@
 
 const Hapi = require('hapi')
 
+const config = require('config')
+
 // const {numberToLcd} = require('../app/number-to-lcd')
 
 const server = new Hapi.Server()
-server.connection({ port: 3000, host: 'localhost' })
+
+const port = config.get('server.port')
+const listen = config.get('server.listen')
+const baseUrl = `${config.get('server.protocol')}://${config.get('server.hostname')}:${port}`
+
+server.connection({port: port, host: listen})
 
 server.route({
     method: 'GET',
     path: '/',
     handler: function(request, reply) {
-        reply('Please use the "/{number}" route.<br/>Example: "/12345"')
+        const exampleUrl = `${baseUrl}/12345`
+        reply(`Please use the "/{number}" route.<br/>Example: <a href="${exampleUrl}">${exampleUrl}</a>`)
     }
 })
 
@@ -31,3 +39,7 @@ server.start((err) => {
     }
     console.log(`Server running at: ${server.info.uri}`)
 })
+
+module.exports = {
+    baseUrl
+}

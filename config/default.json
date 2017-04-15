@@ -1,0 +1,8 @@
+{
+  "server": {
+    "protocol": "http",
+    "hostname": "localhost",
+    "listen": "0.0.0.0",
+    "port": 3000
+  }
+}
