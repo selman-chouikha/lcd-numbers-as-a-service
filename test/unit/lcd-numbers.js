@@ -1,6 +1,6 @@
 require('chai').should()
 
-const {numberToLcd, digitLine, splitNumber} = require('../app/number-to-lcd')
+const {numberToLcd, digitLine, splitNumber} = require('../../app/number-to-lcd')
 
 describe('Number to LCD', () => {
     context('Single digits', function() {

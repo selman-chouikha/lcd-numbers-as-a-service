@@ -5,14 +5,18 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "lint": "eslint test app",
-    "test": "mocha"
+    "lint": "eslint test app server",
+    "test": "npm run test:unit",
+    "test:e2e": "mocha --recursive test/end-to-end",
+    "test:unit": "mocha --recursive test/unit",
+    "server": "node server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
+    "config": "^1.25.1",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.0",
     "eslint-plugin-import": "^2.2.0",
@@ -20,6 +24,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "hapi": "^16.1.1",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
   }
 }
