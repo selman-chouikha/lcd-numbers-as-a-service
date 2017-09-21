@@ -9,7 +9,6 @@ describe('Number to LCD', () => {
 ###
 # #
 # #
-# #
 ###
 `)
         })
